@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="../style_login.css" rel="stylesheet">
+</head>
+<body class="login-body">
+    <div class="main-container">
+
+        <!-- <img src="images/login_background.jpeg"> -->
+        <div class="container-left">
+            <p class="hello"> Hello 🙂 </p>
+            
+            <p class="todo"> Never Miss Your To-Do </p>
+            <div class="img-todo-container">
+                <img class="img-todo" src="../images/Todo_List.png">
+            </div>
+        </div>
+        <div class="container-right">
+            <div class="login-wrap login-div">
+                <div class="login-form">
+                    <div class="sign-in-htm">
+                        <div class="group">
+                            <input id="user" type="text" class="input" placeholder="Username or Email">
+                        </div>
+                        <div class="group">
+                            <input id="pass" type="password" class="input" data-type="password" placeholder="Password">
+                        </div>
+                        <div class="group">
+                            <input type="submit" class="button" value="Login" id="on-login">
+                        </div>
+                        <div class="foot-lnk">
+                            <label for="account" class="label">Have not registered?</label>
+                            <a id="account" href="#forgot">Create a new account</a>
+                        </div>
+                </div>
+            </div>
+        </div>  
+
+        <div class="login-wrap login-reg appear">
+            <div class="login-form">
+                <div class="sign-in-htm">
+                    <div class="group">
+                        <input id="username" type="text" class="input" placeholder="Username">
+                    </div>
+                    <div class="group">
+                        <input id="email" type="text" class="input" placeholder="Email">
+                    </div>
+                    <div class="group">
+                        <input id="new-password" type="password" class="input" data-type="password" placeholder="Password">
+                    </div>
+                    <div class="group">
+                        <input type="submit" class="button" value="Register">
+                    </div>
+                    <div class="foot-lnk">
+                        <button class="back-to-login" id="blogin">⏎</button>
+                    </div>
+            </div>
+        </div>
+    </div>  
+    </div>
+
+
+    <script src="../logic/login.js"></script>
+</body>
+</html>
