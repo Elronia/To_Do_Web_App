@@ -25,10 +25,10 @@ const goBack = () => {
 }
 
 const moveToToDo = () => {
-  location.href = "../pages/todo.html"
+  location.href = "../templates/todo.html"
 
 }
 
 
 backToLogin.addEventListener('click',goBack)
-loginBtn.addEventListener('click', moveToToDo)
+// loginBtn.addEventListener('click', moveToToDo)

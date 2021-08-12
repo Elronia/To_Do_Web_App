@@ -111,7 +111,7 @@
 .login-form .group .input,
 .login-form .group .button {
 	width: 100%;
-	color: #fff;
+	/* color: #fff; */
     /* border: solid red; */
 }
 
