@@ -11,7 +11,7 @@
 }
 
 .main-container {
-    background-image: url("images/login_background.jpeg");
+    background-image: url("images/login_background.jpg");
     background-position: 17% 15%; 
     width: 90%;
     height: 93%;
@@ -37,7 +37,7 @@
 
 .hello, .todo {
     color: white;
-    font-size: 20px;
+    font-size: 40px;
 }
 
 .hello {
@@ -111,7 +111,7 @@
 .login-form .group .input,
 .login-form .group .button {
 	width: 100%;
-	color: #fff;
+	/* color: #fff; */
     /* border: solid red; */
 }
 
@@ -141,7 +141,7 @@
 	padding: 15px;
 	border-radius: 10px;
 	background: rgba(255,255,255,.75);
-    max-width: 45%;
+    max-width: 40%;
 	background: #8D86C9;
     cursor: pointer;
     font-size: 18px;

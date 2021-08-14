@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome Todo</title>
+    <link rel="stylesheet" href="../static/todo.css">
+</head>
+<body>
+    <!-- This is the main container where we show all the information -->
+    <div class="main-container">
+
+
+
+        <!-- Left Side of the application containing menu and options  -->
+        <div class="container-left">
+
+            <div class="menu-container">
+                
+                <!-- Generate the menu icon
+                <div class="menu_icon">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div> -->
+
+                <div class="menu-logo">
+                    <img src="../static/images/Todo_Logo.png" alt="">
+                </div>
+                
+                <p class="welcome-user">Welcome {{name[0].upper()}}{{name[1:]}}</p>
+
+            </div>
+            
+            <H4 class='add-category'> <a class="add-cat-btn">Add a Category</a> </H4>
+
+            <div class="category-display">
+                <!-- Added this form for Saving Category to DB -->
+                <div class="category category-input">
+                    <form action="/addCat" method="POST">
+                        <input class="enter-cat" type="text" name="category" id="" placeholder="Enter category" autofocus>
+                        <input type ="submit" class="category-save-btn" value="Save"></input>
+                    </form>
+                </div>
+
+                <!-- Flask Templates for updating categories -->
+                <!-- Added from to send the category information to flask -->
+                {% for category in categories %}
+                    <div class="category">
+                        <form action="/toTasks" method="POST">
+                            <input type="submit" class="to-task-cover" name="" id="" value="">
+                            <input type="text" name="category" id="" value="{{category.category}}" class="category-title" >
+                            <p class="task-counter">0 Tasks</p>
+                        </form>
+                    </div>
+                {% endfor %}
+
+                <!-- <div class="category">
+                    <p class="category-title"> Work </p>
+                    <p class="task-counter">0 Tasks</p>
+                </div>
+
+                <div class="category">
+                    <p class="category-title"> Shopping </p>
+                    <p class="task-counter">0 Tasks</p>
+                </div> -->
+
+            </div>
+            
+
+        </div>
+
+
+
+
+
+        <!-- Right side of the application containing information -->
+        <div class="container-right">
+            
+            <div class="container-right-navBar">
+
+                <div class="right-menu-container right-menu-container-left">
+
+                    <ul class="right-menu">
+                        <li> <a href="">Recent</a> </li>
+                        <li> <a href="">Completed Tasks</a> </li>
+                    </ul>
+
+                </div>
+
+                <div class="right-menu-container container-logout-btn">
+                    <a href="{{url_for('logout')}}"><button class="logout-btn">Logout</button></a>
+                </div>
+
+            </div>
+
+            <div class="right-display">
+                <!-- Add templates to show tasks -->
+                {% if tasks|count > 0 %}
+                    {% for task in tasks%}
+                        <div class="task">
+                            <h3>{{task.task}}</h3>
+                            <p class="dueDate">{{task.date}}</p>
+                            <p class="description-task">{{task.descp}}</p>
+                            <input type="checkbox" class="checkbox">
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div><p class="no-task">No Tasks, Add a new task </p></div>
+                {% endif %}
+                <!-- <div class="task">
+                    <h3>Hello</h3>
+                    <p class="dueDate">August 10,2021 at 10:00pm</p>
+                    <p class="description-task">Here we have to place a description where we explain everithing because this is where we add componetns to nderstand the list </p>
+                    <input type="checkbox" class="checkbox">
+                </div>
+
+                <div class="task">
+                    <h3>Hello</h3>
+                    
+                    <input type="checkbox" class="checkbox">
+                </div>
+
+                <div class="task">
+                    <h3>hello</h3>
+                    
+                    <input type="checkbox" class="checkbox">
+                </div> -->
+                
+
+
+                <a class="addTask"><button>&#9535</button></a>
+            </div>
+        </div>
+
+        <!-- Add a new task modal -->
+        <div class="add-container add-container-hidden" id="add-container-div">
+            <div>
+                <a class="close-btn">X</a>
+            </div>
+            
+            <div class="add-task-wrapper">
+                <form action="/saveTask" class="add-task-wrapper" method="POST">
+                    <h1 class="m0">ADD TASK</h1>
+                    <p>One Step To Your Goal</p>
+                    <!-- Name Input -->
+                    <label for="">Task</label>
+                    <input type="text" name="task" placeholder="Name of Your Task" class="input-style mt16" id="inp-task-name-el" required='required'>
+                    
+                    <!-- Category Input -->
+                    <!-- <input list="categories" placeholder="Category" class="input-style mt16" id="cat-inp-el"/>
+            
+                    <datalist id="categories">
+                        <option value="Chrome">
+                        <option value="Firefox">
+                        <option value="Internet Explorer">
+                        <option value="Opera">
+                        <option value="Safari">
+                        <option value="Microsoft Edge">
+                    </datalist> -->
+
+                    <!-- Description Text Area -->
+                    <textarea name="descp" id="desc-el" cols="30" rows="20" placeholder="Description" class="txt-area-style mt16" required></textarea>
+
+                    <!-- Due Date input -->
+                    <div class="due-date">
+                        <label for="">Due Date</label>
+                        <input type="date" name="date" id="date-el" class="date-style mt16" required='required'> 
+                    </div>
+
+                    <!-- Save Button -->
+                    <div class="save-task-btn">
+                        <input type="submit" class="btn-save" value="Save the task" id="save-btn">
+                    </div>
+                </form>
+            </div>  
+        </div>
+
+    </div>
+
+    
+    <script src="../static/todo.js"></script>
+</body>
+</html>

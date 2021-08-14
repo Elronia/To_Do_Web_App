@@ -8,12 +8,10 @@ const loginBtn = document.getElementById('on-login')
 //default value or functions
 registerDiv.remove()
 
-
 accId.addEventListener('click',function(){
     loginDiv.remove()
     containerRight.appendChild(registerDiv)
 });
-
 
 
 const goBack = () => {
@@ -25,10 +23,10 @@ const goBack = () => {
 }
 
 const moveToToDo = () => {
-  location.href = "../pages/todo.html"
+  location.href = "../templates/todo.html"
 
 }
 
 
 backToLogin.addEventListener('click',goBack)
-loginBtn.addEventListener('click', moveToToDo)
+// loginBtn.addEventListener('click', moveToToDo)
